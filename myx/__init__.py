@@ -23,8 +23,8 @@ for twin in client.get_twins():
 Make a new twin from drone images
 ---------------------------------
 ```
-client.upload_images_from_fs(&#34;drone-flight-today/&#34;)
-client.finish_upload(&#34;Made with the MYX Python library&#34;)
+client.upload_images_from_fs("drone-flight-today/")
+client.finish_upload("Made with the MYX Python library")
 ```
 
 ```
@@ -38,9 +38,9 @@ Download a file from twin
 -------------------------
 ```
 ID = client.get_twins()[0].id
-report = client.get_file(ID, &#39;report.pdf&#39;)
+report = client.get_file(ID, "report.pdf")
 if report is None:
-    print(&#34;report.pdf not created yet. Try again later&#34;)
+    print("report.pdf not created yet. Try again later")
 ```
 """
 
