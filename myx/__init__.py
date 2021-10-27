@@ -23,18 +23,24 @@ for twin in client.get_twins():
 Make a new twin from drone images
 ---------------------------------
 ```
-new_twin = client.make_new_twin("Made with the MYX Python library")
-client.upload_images(new_twin.id, "drone-flight-today/")
-client.finish_upload(new_twin.id)
+client.upload_images_from_fs(&#34;drone-flight-today/&#34;)
+client.finish_upload(&#34;Made with the MYX Python library&#34;)
+```
+
+```
+#imgs is an array of images which can be read like a binary file
+client.upload_images(imgs, [f'image_{i}.jpg' for i, f in enumerate(imgs)])
+#second argument you specify filenames for the images
 ```
 
 
 Download a file from twin
 -------------------------
 ```
-report = client.get_file(new_twin.id, 'report.pdf')
+ID = client.get_twins()[0].id
+report = client.get_file(ID, &#39;report.pdf&#39;)
 if report is None:
-    print("report.pdf not created yet. Try again later")
+    print(&#34;report.pdf not created yet. Try again later&#34;)
 ```
 """
 
