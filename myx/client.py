@@ -4,7 +4,7 @@ import json
 import mimetypes
 from collections.abc import Iterable
 
-_BASE_URL_PROD = 'https://myxrobotics.com'
+_BASE_URL_PROD = 'https://platform.myxrobotics.com'
 _BASE_URL_TEST = 'http://localhost:4213'
 _BASE_URL = _BASE_URL_PROD
 
@@ -36,9 +36,10 @@ class Client():
 
     def _get_session(self, creds):
         sess = requests.Session()
+        #r = sess.post(f'{self.base_url}/users/login/', data=creds, headers={'User-Agent': 'Mozilla/5.0'}, allow_redirects=False)
         r = sess.post(f'{self.base_url}/users/login/', data=creds, allow_redirects=False)
 
-        if r.headers['location'] != '/dashboard/':
+        if r.headers.get('location') != '/dashboard/':
             raise Exception("Failed to authenticate. Check your email and password are correct.")
 
         return sess
