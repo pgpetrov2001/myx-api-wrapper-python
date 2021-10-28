@@ -1,5 +1,5 @@
 # Documentation
-Visit [docs.myxrobotics.com](docs.myxrobotics.com) to see the documentation in your browser.
+Visit [docs.myxrobotics.com](https://docs.myxrobotics.com) to see the documentation in your browser.
 Generate with
 ```sh
 $ python3 -m pip install pdoc3
